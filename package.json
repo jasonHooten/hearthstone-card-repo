@@ -1,0 +1,26 @@
+{ 
+	"name": "hearthstone-cards",
+	"version": "0.0.1",
+	"description": "Nodejs library for hearthstone cards",
+	"keywords": ["hearthstone", "cards", "games", "cardgames", "blizzard", "gaming"],
+	"bugs": { "url": "https://github.com/jasonHooten/hearthstone-cards/issues" },
+	"author": "Jason Hooten <jason.hooten@gmail.come>",
+	"main": "index.js",
+	"repository":
+	{ 
+		"type": "git",
+	  	 "url": "https://github.com/jasonHooten/hearthstone-cards.git"
+	},
+	"scripts": 
+	{ 
+		"test": "mocha" 
+	},
+	"license": "MIT",
+	"engines": ["node >= 0.4.0"],
+	"dependencies": {
+	    "async": "~0.2.10",
+	    "underscore": "~1.5.2",
+	    "mocha": "~1.17.1",
+	    "chai": "~1.9.0"
+	}
+}
