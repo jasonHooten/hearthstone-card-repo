@@ -1,4 +1,5 @@
-var _ = require('underscore'),
+var _ = require('lodash-node/underscore'),
+	__ = require('lodash-node'),
     hearthStoneCards = require('./cards');
 
 // Privates
@@ -10,49 +11,49 @@ var _qualityRanks = _.map(["legendary", "epic", "rare", "uncommon", "common", "f
 /*
  * Cards data
  */
-module.exports = exports = cards;
+exports.cards = hearthStoneCards;
 
 
 /*
  * Repository Methods
  */
-module.exports = exports = getById = function(name, context){
+exports.getById = function(name, context){
 	context = context || hearthStoneCards;
 	return _.findWhere(context, { name: name });
 };
 
 
-module.exports = exports = getByName = function(name, cards){
+exports.getByName = function(name, cards){
 	context = context || hearthStoneCards;
 	return _.findWhere(context, { name: name });
 };
 
 
-module.exports = exports = getByClass = function(heroClass, context){
+exports.getByClass = function(heroClass, context){
 	context = context || hearthStoneCards;
 	return getByProperty({ "class": hero }, context);
 };
 
 
-module.exports = exports = getByMana = function(mana, context){
+exports.getByMana = function(mana, context){
 	context = context || hearthStoneCards;
 	return getByProperty({ "mana": mana }, context);
 };
 
 
-module.exports = exports = getByHealth = function(health, context){
+exports.getByHealth = function(health, context){
 	context = context || hearthStoneCards;
 	return getByProperty({ "health": health }, context);
 };
 
 
-module.exports = exports = getByAttack = function(attack, context){
+exports.getByAttack = function(attack, context){
 	context = context || hearthStoneCards;
 	return getByProperty({ "attack": attack }, context);
 };
 
 
-module.exports = exports = getByProperty = function(property, context){
+exports.getByProperty = function(property, context){
 	context = context || hearthStoneCards;
 	return _.where(context, property);
 };
@@ -61,17 +62,17 @@ module.exports = exports = getByProperty = function(property, context){
 /*
  * Link Methods
  */
-module.exports = exports = getLinks = function(cards){
+exports.getLinks = function(cards){
 	return _.map(cards, function(card){ return getLinkById(card.id);});
 };
 
 
-module.exports = exports = getLink = function(card){
+exports.getLink = function(card){
 	return getLinkById(card.id);
 };
 
 
-module.exports = exports = getLinkById = function(id){
+exports.getLinkById = function(id){
 	return _hearthHeadLink + id;
 };
 
@@ -79,25 +80,25 @@ module.exports = exports = getLinkById = function(id){
 /*
  * Sort Method
  */
-module.exports = exports = sortByMana = function(mana, context){
+exports.sortByMana = function(mana, context){
 	context = context || hearthStoneCards;
 	return _.sortBy(context, function(card){ return card.mana || 0; });
 };
 
 
-module.exports = exports = sortByHealth = function(health, context){
+exports.sortByHealth = function(health, context){
 	context = context || hearthStoneCards;
 	return _.sortBy(context, function(card){ return card.health || 0; });
 };
 
 
-module.exports = exports = sortByAttack = function(attack, context){
+exports.sortByAttack = function(attack, context){
 	context = context || hearthStoneCards;
 	return _.sortBy(context, function(card){ return card.attack || 0; });
 };
 
 
-module.exports = exports = sortByQuality = function(quality, context){
+exports.sortByQuality = function(quality, context){
 	context = context || hearthStoneCards;
 	return _.sortBy(context, function(card)
 		{
@@ -111,22 +112,22 @@ module.exports = exports = sortByQuality = function(quality, context){
 /*
  * Group Method
  */
- module.exports = exports = groupByMana = function(context){
+ exports.groupByMana = function(context){
 	context = context || hearthStoneCards;
 	return _.groupBy(context, 'mana');
 };
 
- module.exports = exports = groupByHealth = function(context){
+ exports.groupByHealth = function(context){
 	context = context || hearthStoneCards;
 	return _.groupBy(context, 'health');
 };
 
- module.exports = exports = groupByAttack = function(context){
+exports.groupByAttack = function(context){
 	context = context || hearthStoneCards;
 	return _.groupBy(context, 'attack');
 };
 
-module.exports = exports = groupByQuality = function(quality, context){
+exports.groupByQuality = function(quality, context){
 	context = context || hearthStoneCards;
 	return _.groupBy(context, 'quality');
 };
@@ -136,15 +137,23 @@ module.exports = exports = groupByQuality = function(quality, context){
 /*
  * Starting Hand 
  */
-module.exports = exports = startingHand_p1 = function(context){
-	var hand = [];
-	return [];
+exports.drawCard = function(deck){
+	var newCard = _.sample(deck);
+
+	deck = _.reject(deck, function(card){ return card.id === newCard.id; });
+	hand.push(newCard);
+
+	return { remainingDeck: deck, hand: hand };
 };
 
 
-module.exports = exports = startingHand_p2 = function(context){
-	var hand = [];
-
-
-	return [];
+exports.startingHand = function(deck, withCoin){
+	var hand = _.sample(deck, 4);
+	if (_.contains(hand, deck[i])) {
+			members.splice(i, 1);
+			return;
+	}
+	if(withCoin) hand.push(getById(1746)); //the coin
+	return { remainingDeck: deck, hand: hand };
 };
+
