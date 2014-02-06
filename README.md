@@ -121,7 +121,7 @@ Both methods return an object with new cards in hand and a remaining deck.
 - `deck` ([card]) - A list of cards to draw a new card from.
 - `hand` ([card]) - Current hand.
 
-### getLinks(deck, withCoin)
+### drawHand(deck, withCoin)
 - `deck` ([cards]) - A list of cards to draw your starting hand from.
 - 'withCoin' (bool) - A bool of if the user is going second, will include the coin card.
 
