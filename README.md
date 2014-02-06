@@ -9,7 +9,7 @@ Version
 
 0.5
 
-'Update to date with Hearthstone Patch 1.0.0.442'
+'Update to date with Hearthstone Patch 1.0.0.4482'
 
 
 Installation

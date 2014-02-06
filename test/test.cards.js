@@ -76,7 +76,7 @@ describe('getManyByMana', function() {
 	it('should match to the card in the repo', function() {
 		var card = repo.getManyByMana(8);
 		expect(card).to.not.be.empty;
-		expect(card[0].id).to.be.equal(8);
+		expect(card[0].id).to.be.equal(32);
 	});
 
 	it('should match to the card in the context', function() {

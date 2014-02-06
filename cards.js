@@ -27,7 +27,7 @@ module.exports = [
       "quality":"common",
       "race":"none",
       "set":"basic",
-      "mana":8,
+      "mana":10,
       "attack":null,
       "health":null,
       "collectible":true,
@@ -1575,7 +1575,7 @@ module.exports = [
    {
       "id":242,
       "name":"Abusive Sergeant",
-      "description":"<b>Battlecry<\/b>: Give a friendly minion +2 Attack this turn.",
+      "description":"<b>Battlecry<\/b>: Give a minion +2 Attack this turn.",
       "image":"http:\/\/wow.zamimg.com\/images\/hearthstone\/cards\/enus\/medium\/CS2_188.png",
       "class":"neutral",
       "type":"minion",
@@ -1589,7 +1589,7 @@ module.exports = [
       "effect_list":[
          {
             "effect":"battlecry",
-            "extra":"Give a friendly minion +2 Attack this turn"
+            "extra":"Give a minion +2 Attack this turn"
          }
       ]
    },
@@ -1797,7 +1797,7 @@ module.exports = [
       "set":"expert",
       "mana":6,
       "attack":4,
-      "health":3,
+      "health":2,
       "collectible":true,
       "effect_list":[
          {
@@ -1840,7 +1840,7 @@ module.exports = [
       "set":"basic",
       "mana":2,
       "attack":1,
-      "health":2,
+      "health":1,
       "collectible":true,
       "effect_list":[
          {
@@ -2390,14 +2390,14 @@ module.exports = [
    {
       "id":344,
       "name":"Charge",
-      "description":"Give a friendly minion <b>Charge<\/b>.",
+      "description":"Give a friendly minion +2 Attack and <b>Charge<\/b>.",
       "image":"http:\/\/wow.zamimg.com\/images\/hearthstone\/cards\/enus\/medium\/CS2_103.png",
       "class":"warrior",
       "type":"spell",
       "quality":"free",
       "race":"none",
       "set":"basic",
-      "mana":0,
+      "mana":3,
       "attack":null,
       "health":null,
       "collectible":true,
@@ -2978,7 +2978,7 @@ module.exports = [
       "quality":"common",
       "race":"none",
       "set":"expert",
-      "mana":3,
+      "mana":4,
       "attack":null,
       "health":null,
       "collectible":true,
@@ -3219,7 +3219,7 @@ module.exports = [
       "quality":"rare",
       "race":"none",
       "set":"expert",
-      "mana":5,
+      "mana":6,
       "attack":null,
       "health":null,
       "collectible":true,
@@ -3390,7 +3390,7 @@ module.exports = [
    {
       "id":469,
       "name":"Blood Imp",
-      "description":"<b>Stealth<\/b>. Your other minions have +1 Health.",
+      "description":"<b>Stealth<\/b>. At the end of your turn, give another random friendly minion +1 Health.",
       "image":"http:\/\/wow.zamimg.com\/images\/hearthstone\/cards\/enus\/medium\/CS2_059.png",
       "class":"warlock",
       "type":"minion",
@@ -3398,7 +3398,7 @@ module.exports = [
       "race":"demon",
       "set":"expert",
       "mana":1,
-      "attack":1,
+      "attack":0,
       "health":1,
       "collectible":true,
       "effect_list":[
@@ -4311,7 +4311,7 @@ module.exports = [
       "quality":"common",
       "race":"none",
       "set":"basic",
-      "mana":2,
+      "mana":3,
       "attack":null,
       "health":null,
       "collectible":true,
@@ -4481,7 +4481,7 @@ module.exports = [
       "set":"basic",
       "mana":3,
       "attack":3,
-      "health":3,
+      "health":2,
       "collectible":true,
       "effect_list":[
          {
@@ -5546,7 +5546,7 @@ module.exports = [
       "race":"none",
       "set":"expert",
       "mana":4,
-      "attack":3,
+      "attack":2,
       "health":3,
       "collectible":true,
       "effect_list":[
@@ -7329,7 +7329,7 @@ module.exports = [
    {
       "id":1009,
       "name":"Warsong Commander",
-      "description":"Your other minions have <b>Charge<\/b>.",
+      "description":"Whenever you summon a minion with 3 or less Attack, give it <b>Charge<\/b>.",
       "image":"http:\/\/wow.zamimg.com\/images\/hearthstone\/cards\/enus\/medium\/EX1_084.png",
       "class":"warrior",
       "type":"minion",
@@ -7765,7 +7765,7 @@ module.exports = [
       "quality":"epic",
       "race":"none",
       "set":"expert",
-      "mana":8,
+      "mana":10,
       "attack":null,
       "health":null,
       "collectible":true,
@@ -7776,7 +7776,7 @@ module.exports = [
    {
       "id":1090,
       "name":"Flame Imp",
-      "description":"<b>Battlecry<\/b>: Deal 2 damage to your hero.",
+      "description":"<b>Battlecry<\/b>: Deal 3 damage to your hero.",
       "image":"http:\/\/wow.zamimg.com\/images\/hearthstone\/cards\/enus\/medium\/EX1_319.png",
       "class":"warlock",
       "type":"minion",
@@ -7790,7 +7790,7 @@ module.exports = [
       "effect_list":[
          {
             "effect":"battlecry",
-            "extra":"Deal 2 damage to your hero"
+            "extra":"Deal 3 damage to your hero"
          }
       ]
    },
@@ -8437,7 +8437,7 @@ module.exports = [
       "set":"basic",
       "mana":2,
       "attack":2,
-      "health":2,
+      "health":1,
       "collectible":true,
       "effect_list":[
 
@@ -8446,14 +8446,14 @@ module.exports = [
    {
       "id":1243,
       "name":"Unleash the Hounds",
-      "description":"Give your Beasts +1 Attack and <b>Charge<\/b>.",
+      "description":"For each enemy minion, summon a 1/1 Hound with <b>Charge<\/b>.",
       "image":"http:\/\/wow.zamimg.com\/images\/hearthstone\/cards\/enus\/medium\/EX1_538.png",
       "class":"hunter",
       "type":"spell",
       "quality":"common",
       "race":"none",
       "set":"expert",
-      "mana":1,
+      "mana":2,
       "attack":null,
       "health":null,
       "collectible":true,
@@ -9764,7 +9764,7 @@ module.exports = [
       "quality":"legendary",
       "race":"none",
       "set":"expert",
-      "mana":5,
+      "mana":6,
       "attack":5,
       "health":5,
       "collectible":true,

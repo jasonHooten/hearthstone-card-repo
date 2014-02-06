@@ -108,7 +108,6 @@ exports.sortByQuality = function(context){
 };
 
 
-
 /*
  * Group Method
  */
@@ -130,6 +129,11 @@ exports.groupByAttack = function(context){
 exports.groupByQuality = function(context){
 	context = context || hearthStoneCards;
 	return _.groupBy(context, 'quality');
+};
+
+exports.groupByClass = function(context){
+	context = context || hearthStoneCards;
+	return _.groupBy(context, 'class');
 };
 
 
