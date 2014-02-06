@@ -17,43 +17,43 @@ exports.cards = hearthStoneCards;
 /*
  * Repository Methods
  */
-exports.getById = function(name, context){
+exports.getById = function(id, context){
 	context = context || hearthStoneCards;
-	return _.findWhere(context, { name: name });
+	return _.findWhere(context, { "id": id });
 };
 
 
-exports.getByName = function(name, cards){
+exports.getByName = function(name, context){
 	context = context || hearthStoneCards;
-	return _.findWhere(context, { name: name });
+	return _.findWhere(context, { "name": name });
 };
 
 
-exports.getByClass = function(heroClass, context){
+exports.getManyByClass = function(heroClass, context){
 	context = context || hearthStoneCards;
-	return getByProperty({ "class": hero }, context);
+	return getByProperty({ "class": heroClass }, context);
 };
 
 
-exports.getByMana = function(mana, context){
+exports.getManyByMana = function(mana, context){
 	context = context || hearthStoneCards;
 	return getByProperty({ "mana": mana }, context);
 };
 
 
-exports.getByHealth = function(health, context){
+exports.getManyByHealth = function(health, context){
 	context = context || hearthStoneCards;
 	return getByProperty({ "health": health }, context);
 };
 
 
-exports.getByAttack = function(attack, context){
+exports.getManyByAttack = function(attack, context){
 	context = context || hearthStoneCards;
 	return getByProperty({ "attack": attack }, context);
 };
 
 
-exports.getByProperty = function(property, context){
+getByProperty = exports.getManyByProperty = function(property, context){
 	context = context || hearthStoneCards;
 	return _.where(context, property);
 };
@@ -72,7 +72,7 @@ exports.getLink = function(card){
 };
 
 
-exports.getLinkById = function(id){
+getLinkById = exports.getLinkById = function(id){
 	return _hearthHeadLink + id;
 };
 
@@ -80,25 +80,25 @@ exports.getLinkById = function(id){
 /*
  * Sort Method
  */
-exports.sortByMana = function(mana, context){
+exports.sortByMana = function(context){
 	context = context || hearthStoneCards;
 	return _.sortBy(context, function(card){ return card.mana || 0; });
 };
 
 
-exports.sortByHealth = function(health, context){
+exports.sortByHealth = function(context){
 	context = context || hearthStoneCards;
 	return _.sortBy(context, function(card){ return card.health || 0; });
 };
 
 
-exports.sortByAttack = function(attack, context){
+exports.sortByAttack = function(context){
 	context = context || hearthStoneCards;
 	return _.sortBy(context, function(card){ return card.attack || 0; });
 };
 
 
-exports.sortByQuality = function(quality, context){
+exports.sortByQuality = function(context){
 	context = context || hearthStoneCards;
 	return _.sortBy(context, function(card)
 		{
@@ -127,7 +127,7 @@ exports.groupByAttack = function(context){
 	return _.groupBy(context, 'attack');
 };
 
-exports.groupByQuality = function(quality, context){
+exports.groupByQuality = function(context){
 	context = context || hearthStoneCards;
 	return _.groupBy(context, 'quality');
 };
@@ -137,23 +137,25 @@ exports.groupByQuality = function(quality, context){
 /*
  * Starting Hand 
  */
-exports.drawCard = function(deck){
-	var newCard = _.sample(deck);
-
+drawCard = exports.drawCard = function(deck, hand){
+	var newCard = __.sample(deck);
 	deck = _.reject(deck, function(card){ return card.id === newCard.id; });
-	hand.push(newCard);
+	
+	var newHand = hand || [];
+	newHand.push(newCard);
 
-	return { remainingDeck: deck, hand: hand };
+	return { deck: deck, hand: newHand };
 };
 
 
-exports.startingHand = function(deck, withCoin){
-	var hand = _.sample(deck, 4);
-	if (_.contains(hand, deck[i])) {
-			members.splice(i, 1);
-			return;
+exports.drawHand = function(deck, withCoin){
+	var turn = { deck: deck, hand: [] };
+
+	for(var i = 0; i < 4; i++){
+		turn = drawCard(turn.deck, turn.hand);
 	}
-	if(withCoin) hand.push(getById(1746)); //the coin
-	return { remainingDeck: deck, hand: hand };
+
+	if(withCoin) turn.hand.push(getById(1746)); //the coin
+	return turn;
 };
 
